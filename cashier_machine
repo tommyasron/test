@@ -1,0 +1,55 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class ProjectKasirSederhana {
+    public static void main(String[] args) {
+        int porsi,pilihan,total,bayar,totalkembalian,harga = 0;//deklarasi variable
+
+        Scanner input = new Scanner(System.in);
+        System.out.println("==================");
+        System.out.println("SELAMAT DATANG DI RESTORAN ENAK");//mencetak nilai dari objek
+        System.out.println("===Menu Makanan===");//mencetak nilai dari objek
+        System.out.println("| 1. Nasi Goreng     |");//mencetak nilai dari objek
+        System.out.println("| 2. Nasi Bakar  |");//mencetak nilai dari objek
+        System.out.println("| 3. Mie Goreng   |");//mencetak nilai dari objek
+        System.out.println("| 4. Mie Rebus    |");//mencetak nilai dari objek
+        System.out.println("==================");//mencetak nilai dari objek
+        try{
+            System.out.print("Silahkan pilih yang anda pesan : ");//mencetak nilai dari objek
+            pilihan = input.nextInt();
+            if(pilihan == 1){
+                harga = 17000;
+                System.out.println("@Nasi Goreng" + " harga : Rp. " + harga);
+            }else if(pilihan == 2){
+                harga = 11000;
+                System.out.println("@Nasi Bakar " + "harga : Rp. " + harga);
+            }else if(pilihan == 3){
+                harga = 10000;
+                System.out.println("@Mie Goreng " + "harga : Rp. " + harga);
+            }else if(pilihan == 4){
+                harga = 10000;
+                System.out.println("@Mie Rebus " + "harga : Rp. " + harga);
+            }else{
+                System.out.println("Maaf Pilihan yang Anda Pilih Salah !");
+            }
+            System.out.print("Jumlah Porsi ? : ");
+            porsi = input.nextInt();
+            total = harga * porsi; // melakukan proses perhitungan dari nilai ketika memasukkan berapa porsi
+            // maka akan melakukan kalkulasi lalu memasukkan kedalam variable total
+            System.out.println("Anda harus membayar : Rp. " + total);//mencetak nilai dari objek total
+            System.out.print("Bayar : Rp. ");
+            bayar = input.nextInt();
+            if(bayar<total){ //kalau uang yang diinput kurang
+                System.out.println("Maaf uang anda kurang");
+            } else {
+                totalkembalian = (int) (bayar - total);
+                System.out.println("Kembaliannya : Rp. " +totalkembalian);//mencetak nilai dari objek kembalian
+            }
+        } catch (InputMismatchException ime){
+            System.out.println("#error: Data input salah. silakan coba lagi.");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return;//kembali
+    }
+}
